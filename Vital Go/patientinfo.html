@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Health Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+ <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="dashboard-container">
+
+    <!-- Row 1: 2 cards -->
+    <div class="grid-row row-2">
+      <!-- Heart Rate -->
+      <div class="card">
+        <div class="text">
+          <div class="number-heart">72</div>
+          <div class="unit">bpm</div>
+          <div class="label">Heart Rate</div>
+        </div>
+         <div class="icon-group">
+      <i class="bi bi-activity icon heart"></i>
+      <i class="bi bi-activity icon heart"></i>
+    </div>
+      </div>
+
+      <!-- Blood Pressure -->
+      <div class="card">
+        <div class="text">
+          <div class="number-bp">120/80</div>
+          <div class="unit">mmHg</div>
+          <div class="label">Blood Pressure</div>
+        </div>
+        <i class="fa-solid fa-droplet icon bp"></i>
+      </div>
+    </div>
+
+    <!-- Row 2: 2 cards -->
+    <div class="grid-row row-2">
+      <!-- Oxygen Saturation -->
+      <div class="card">
+        <div class="text">
+          <div class="number-o2">98</div>
+          <div class="unit">%</div>
+          <div class="label">Oxygen Saturation</div>
+        </div>
+        <i class="fas fa-heart-pulse icon o2"></i>
+      </div>
+
+      <!-- Body Temperature -->
+      <div class="card">
+        <div class="text">
+          <div class="number-temp">36.7</div>
+          <div class="unit">°C</div>
+          <div class="label">Temperature</div>
+        </div>
+        <i class="fas fa-thermometer-half icon temp"></i>
+      </div>
+    </div>
+
+    <!-- Row 3: 3 cards -->
+    <div class="grid-row row-3">
+      <!-- Respiratory Rate -->
+      <div class="card">
+        <div class="text">
+          <div class="number-lung">16</div>
+          <div class="unit">bpm</div>
+          <div class="label">Respiratory Rate</div>
+        </div>
+        <i class="fas fa-lungs icon lung"></i>
+      </div>
+
+      <!-- Blood Sugar -->
+      <div class="card">
+        <div class="text-sugar">
+          <div class="number-sugar">97</div>
+          <div class="unit">mg/dL</div>
+          <div class="label">Blood Sugar</div>
+        </div>
+        <i class="fas fa-chart-line icon sugar"></i>
+      </div>
+
+      <!-- Weight -->
+      <div class="card">
+        <div class="text">
+          <div class="number-weight">70.5</div>
+          <div class="unit">kg</div>
+          <div class="label">Weight</div>
+        </div>
+        <i class="fa-solid fa-scale-unbalanced-flip icon weight"></i>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

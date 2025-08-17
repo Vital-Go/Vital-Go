@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vital-Go</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="shortcut icon" href="../images/logo.jpg" type="image/jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
+  <script src="../js/script.js" defer></script>
+  <script src="../js/dashboard.js" defer></script>
+</head>
+<body>
+  <!-- Overlay to close sidebar on mobile -->
+  <div id="close-sidebar" onclick="sidemenunone()"></div>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <nav id="sideBar">
+      <i class="fas fa-angles-left" onclick="sidemenunone()" id="close"></i>
+      <div class="vitalgo-id">
+        <img src="../images/logo.jpg" alt="Logo" class="logo" />
+        <h1>Vital<span class="good">-Go</span></h1>
+        <h2 id="motto"></h2>
+      </div>
+      <div class="linkpages">
+        <a href="index.html" class="active">
+          <i class="fas fa-home"></i> <span class="linkname">Dashboard</span>
+        </a>
+        <a href="appointments.html">
+          <i class="fas fa-calendar"></i><span class="linkname">Appointments</span>
+        </a>
+        <a href="video-consult.html">
+          <i class="fas fa-video"></i><span class="linkname">Video Consult</span>
+        </a>
+        <a href="medical-records.html">
+          <i class="fas fa-notes-medical"></i><span class="linkname">Medical Records</span>
+        </a>
+        <a href="reports.html">
+          <i class="fas fa-file-waveform"></i><span class="linkname">Reports</span>
+        </a>
+        <a href="assistance.html">
+          <i class="fas fa-question"></i><span class="linkname">Assistance</span>
+        </a>
+      </div>
+      <div class="nav-footer">
+        <div class="footer-info">
+          <a href="">
+            <i class="fas fa-user"></i>
+            <h3>Profile</h3>
+          </a>
+        </div>
+        <div class="footer-info">
+          <a href="">
+            <i class="fas fa-gear"></i>
+            <h3>Settings</h3>
+          </a>
+        </div>
+        <div class="footer-info">
+          <a href="">
+            <i class="fas fa-arrow-right-from-bracket"></i>
+            <h3>Log Out</h3>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <section class="header">
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input type="search" placeholder="Search patients, doctors, reports..." />
+        </div>
+        <div class="user-menu">
+          <img src="../images/lg1.jpg" alt="User" class="profile-photo" />
+          <div>
+            <h3>Asiedu Minta Kwaku</h3>
+            <h4>ID: #Vital-Go24312</h4>
+          </div>
+          <div class="togglemenu">
+            <i class="fas fa-sun active-mode" onclick="lightMode()"></i>
+            <i class="fas fa-moon" onclick="darkMode()"></i>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dashboard -->
+      <section class="dashboard" id="dashboard">
+        <div class="dashboard-header">
+          <div class="dashHeader-left">
+            <h1>
+              Patient <span class="monitoring" style="display: inline;">Monitoring</span> Dashboard
+            </h1>
+            <div class="current-date">
+              <i class="far fa-calendar"></i>
+              <span class="currentDate">dd/mm/yyyy</span>
+            </div>
+          </div>
+          <div class="dashHeader-right">
+            <h4><i class="fas fa-cloud-arrow-down"></i>Last Updated:</h4>
+            <div class="Lupdated-time">
+              <span class="currentDate" style="display: inline-block;">dd/mm/yyyy</span>
+              <span id="currentTime">00:00:00 AM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Status grids -->
+        <div class="stats-grids">
+          <div class="stat-card">
+            <div class="stat-icon" style="background: #e3f2fd;">
+              <i class="bi bi-calendar-event-fill" style="color: #2196f3;"></i>
+            </div>
+            <div class="stat-details">
+              <h3>Next Appointment</h3>
+              <h2 class="stat-number">10:30 AM</h2>
+              <span class="text-muted">2 <i class="fas fa-arrow-down"></i></span>
+            </div>
+            <div class="stat-footer">
+              <a href="appointments.html" class="view-details">View Details</a>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: #e8f5e9;">
+              <i class="fas fa-circle-check" style="color: #4caf50;"></i>
+            </div>
+            <div class="stat-details">
+              <h3>Health Status</h3>
+              <h2 class="stat-number">Normal</h2>
+              <span class="text-muted">Improving <i class="fas fa-arrow-up"></i></span>
+            </div>
+            <div class="stat-footer">
+              <a href="#" class="view-details">View Details</a>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: #ffe0b2;">
+              <i class="fas fa-clock-rotate-left" style="color: #ff9800;"></i>
+            </div>
+            <div class="stat-details">
+              <h3>Today's Summary</h3>
+              <h2 class="stat-number">Good</h2>
+              <span class="text-muted">Smooth Day <i class="far fa-heart"></i></span>
+            </div>
+            <div class="stat-footer">
+              <a href="#" class="view-details">View Details</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Patient details -->
+        <div class="pd">
+          <div class="dashboard-container">
+            <!-- Row 1: 2 cards -->
+            <div class="grid-row row-2">
+              <!-- Heart Rate -->
+            <div class="card">
+  <div class="text">
+    <div class="number-heart" id="heart-rate">72</div>
+    <div class="unit">bpm</div>
+    <div class="label">Heart Rate</div>
+  </div>
+  <div class="icon-group">
+    <i class="bi bi-activity icon heart heart-icon"></i>
+    <i class="bi bi-activity icon heart heart-icon"></i>
+    <i class="bi bi-activity icon heart heart-icon"></i>
+  </div>
+</div>
+
+              <!-- Blood Pressure -->
+              <div class="card">
+                <div class="text">
+                  <div class="number-bp" id="blood-pressure">120/80</div>
+                  <div class="unit">mmHg</div>
+                  <div class="label">Blood Pressure</div>
+                </div>
+                <i class="fa-solid fa-droplet icon bp" id="bp-icon"></i>
+              </div>
+            </div>
+
+            <!-- Row 2: 2 cards -->
+            <div class="grid-row row-2">
+              <!-- Oxygen Saturation -->
+              <div class="card">
+                <div class="text">
+                  <div class="number-o2" id="oxygen">98</div>
+                  <div class="unit">%</div>
+                  <div class="label">Oxygen Saturation</div>
+                </div>
+                <i class="fas fa-heart-pulse icon o2" id="o2-icon"></i>
+              </div>
+
+              <!-- Body Temperature -->
+              <div class="card">
+                <div class="text">
+                  <div class="number-temp" id="temperature">36.7</div>
+                  <div class="unit">°C</div>
+                  <div class="label">Temperature</div>
+                </div>
+                <i class="fas fa-thermometer-half icon temp" id="temp-icon"></i>
+              </div>
+            </div>
+
+            <!-- Row 3: 3 cards -->
+            <div class="grid-row row-3">
+              <!-- Respiratory Rate -->
+              <div class="card">
+                <div class="text">
+                  <div class="number-lung" id="respiratory">16</div>
+                  <div class="unit">bpm</div>
+                  <div class="label">Respiratory Rate</div>
+                </div>
+                <i class="fas fa-lungs icon lung" id="lung-icon"></i>
+              </div>
+
+              <!-- Blood Sugar -->
+              <div class="card">
+                <div class="text-sugar">
+                  <div class="number-sugar" id="sugar">97</div>
+                  <div class="unit">mg/dL</div>
+                  <div class="label">Blood Sugar</div>
+                </div>
+                <i class="fas fa-chart-line icon sugar" id="sugar-icon"></i>
+              </div>
+
+              <!-- Weight -->
+              <div class="card">
+                <div class="text">
+                  <div class="number-weight" id="weight">70.5</div>
+                  <div class="unit">kg</div>
+                  <div class="label">Weight</div>
+                </div>
+                <i class="fa-solid fa-scale-unbalanced-flip icon weight" id="weight-icon"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="summary-card">
+            <div class="summary-title">Today's Summary</div>
+            <div class="metrics-wrapper">
+              <div class="metric" style="background: #c0ac5b;">
+                <i class="bi bi-activity icon2 heart2"></i>
+                <div class="metric-label">Heart Rate</div>
+                <div class="metric-value">72 bpm</div>
+              </div>
+              <div class="metric" style="background: #dd8ac8;">
+                <i class="fas fa-heart-pulse icon2 o2"></i>
+                <div class="metric-label">Oxygen</div>
+                <div class="metric-value">98%</div>
+              </div>
+              <div class="metric" style="background: #948d70;">
+                <i class="fa-solid fa-person-walking icon2 steps"></i>
+                <div class="metric-label">Steps</div>
+                <div class="metric-value">7530</div>
+              </div>
+              <div class="metric" style="background: #b06dd6;">
+                <i class="fa-solid fa-droplet icon2 bp"></i>
+                <div class="metric-label">Blood PP mmHg</div>
+                <div class="metric-value">120/80</div>
+              </div>
+              <div class="metric" style="background: #da6928;">
+                <i class="fas fa-lungs icon2 lung"></i>
+                <div class="metric-label">Avg. Resp.</div>
+                <div class="metric-value">16 bpm</div>
+              </div>
+              <div class="metric" style="background: #fa40db;">
+                <i class="fas fa-thermometer-half icon2 temp"></i>
+                <div class="metric-label">Temperature</div>
+                <div class="metric-value">37<sup>0</sup> C</div>
+              </div>
+              <div class="metric" style="background: #5cc7ac;">
+                <i class="fas fa-chart-line icon2 sugar"></i>
+                <div class="metric-label">Blood sugar</div>
+                <div class="metric-value">95 mg/dL</div>
+              </div>
+              <div class="metric" style="background: #71bd7d;">
+                <i class="fa-solid fa-scale-unbalanced-flip icon2 weight"></i>
+                <div class="metric-label">Weight</div>
+                <div class="metric-value">70 kg</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Sidebar for mobile -->
+  <nav class="aside1" id="aside1">
+    <div class="menu-icon">
+      <i class="fas fa-angles-right open" id="open" onclick="sidemenushow()"></i>
+    </div>
+    <div class="linkpages1">
+      <a href="index.html" class="active"><i class="fas fa-home"></i></a>
+      <a href="appointments.html"><i class="fas fa-calendar"></i></a>
+      <a href="video-consult.html"><i class="fas fa-video"></i></a>
+      <a href="medical-records.html"><i class="fas fa-notes-medical"></i></a>
+      <a href="reports.html"><i class="fas fa-file-waveform"></i></a>
+      <a href="assistance.html"><i class="fas fa-question"></i></a>
+    </div>
+    <div class="aside-footer1">
+      <a href=""><i class="fas fa-user"></i></a>
+      <a href=""><i class="fas fa-gear"></i></a>
+      <a href=""><i class="fas fa-arrow-right-from-bracket"></i></a>
+    </div>
+  </nav>
+</body>
+</html>

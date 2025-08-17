@@ -1,0 +1,127 @@
+
+@media (max-width: 769px) {
+    .container {
+        padding: 0;
+        grid-template-columns: 1fr;
+        transition: var(--transition-smooth);
+    }
+    img{
+        max-width: 30vw ;
+    }
+    #sideBar{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: var(--cl-background);
+        height: 100dvh;
+        width: 80vw;
+        justify-content: center;
+        align-items: center;
+        z-index: 99;
+        .vitalgo-id img{
+            width: 20vw;
+            height: 18vw;
+        }
+        .linkpages{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            text-align: 10vw;
+            top: 10vh;
+        }
+        .linkpages a{
+            width:  70%;
+        }
+    }
+    .aside1{
+        display: block;
+        width: 9vw;
+        height: 100dvh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+    }
+    .aside1 .linkpages1{
+        display: flex;
+        margin-top: 10vh;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    .aside-footer1{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.23rem;
+        bottom: 0;
+        z-index: 20;
+    }
+    #open{
+        display: block;
+        width: 80%;
+        cursor: pointer;
+        align-items: center;
+    }
+    #close{
+        display: block;
+    }
+    #close-sidebar{
+        display: block;
+        display: none;
+        position: absolute;
+        top: 0;
+        height: 100dvh;
+        width: 100vw;
+        z-index: 98;
+        background: var(--cl-bgopacity);
+        opacity: var(--bgopacity);
+        backdrop-filter: 1.2rem;
+    }
+    main{
+        width: 85vw;
+        margin-left: 11vw;
+        padding: 1rem 0;
+    }
+    .header{
+        height: 5vh;
+    }
+    span .monitoring{
+        display: none;
+    }
+    .search-bar input{
+        width: 130%;
+        height: 2.33rem;
+        margin: auto 1;
+    }
+    .search-bar i{
+        font-size: 0.9rem;
+    }
+    
+    .user-menu{
+        gap: 0.7rem;
+        img{
+            width: 2rem;
+            height: 2rem;
+        }
+        h3, h4{
+            display: none;
+        }
+    }
+    .dashboard{
+        margin: 1.9rem auto;
+        padding: 0.1rem 0.5rem;
+        box-shadow: var(--box-shadow1);
+    }
+    .stats-grids{
+        grid-template-columns: 1fr !important;
+    }
+    .stat-card:hover{
+        scale: 0.95;
+        margin-left: 0.3rem;
+    }
+    
+}

@@ -1,0 +1,111 @@
+ 
+    
+    .dashboard-container {
+      background: #fff;
+      border-radius: 9px;
+      padding: 10px;
+      border: 2px solid #ccc;
+      max-width: 500px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+   
+      
+    }
+
+    .grid-row {
+      display: grid;
+      gap: 2px;
+      width: 100%;
+    }
+
+    .row-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .row-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* More Responsive behavior 
+.row-2 {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.row-3 {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+} */
+
+    .card {
+      background: #f9f9f9;
+      border-radius: 5px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 70px;
+      box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+      width:100%;
+      min-width: 0;          /* Prevents overflow on narrow screens */
+      box-sizing: border-box;
+    }
+
+    .card .text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .number-temp, .number-sugar, .number-bp, .number-o2, .number-lung, .number-weight, .number-heart {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .number-o2, .number-weight, .number-bp {
+      color: #2ab3bd;
+    }
+     .number-o2, .number-bp {
+      color: #7537bd;
+    }
+
+    .number-heart, .number-lung {
+      color: #db4f24;
+    }
+    .number-temp, .number-sugar {
+   color:#9e1b1b
+    }
+
+    .unit {
+      font-size: 12px;
+      font-weight: 800;
+      color: #9e1b1b;
+      margin-bottom: 2px;
+    }
+
+    .label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .icon {
+      font-size: 30px;
+    } 
+    
+  .card .icon-group {
+  display: flex;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+    /* Icon Colors */
+    .heart { color: #00cc99; font-size:40px;}
+    .bp { color: hwb(352 5% 29%); }
+    .o2 { color: #1db9c3; }
+    .temp { color: red; }
+    .lung { color: rgb(105, 37, 105); }
+    .sugar { color: crimson; }
+    .weight { color: royalblue; }
+
