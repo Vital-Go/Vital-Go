@@ -1,14 +1,17 @@
-
 @media (max-width: 769px) {
     .container {
+        width: 100vw;
+        box-sizing: border-box;
         padding: 0;
         grid-template-columns: 1fr;
         transition: var(--transition-smooth);
     }
-    img{
-        max-width: 30vw ;
+    
+    img {
+        max-width: 30vw;
     }
-    #sideBar{
+    
+    #sideBar {
         display: none;
         position: absolute;
         top: 0;
@@ -19,57 +22,72 @@
         justify-content: center;
         align-items: center;
         z-index: 99;
-        .vitalgo-id img{
-            width: 20vw;
-            height: 18vw;
-        }
-        .linkpages{
-            display: flex;
-            width: 100%;
-            align-items: center;
-            text-align: 10vw;
-            top: 10vh;
-        }
-        .linkpages a{
-            width:  70%;
-        }
     }
-    .aside1{
+
+    nav #motto{
+        width: 80vw;
+    }
+    
+    #sideBar .vitalgo-id img {
+        width: 30vw;
+        height: 26vw;
+    }
+    
+    #sideBar .linkpages {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        text-align: 10vw;
+        margin-top: 5vh;
+        margin-left: 1.75rem;
+    }
+    
+    #sideBar .linkpages a {
+        width: 65%;
+    }
+    
+    .aside1 {
         display: block;
-        width: 9vw;
+        width: 10vw;
         height: 100dvh;
         position: absolute;
         top: 0;
         left: 0;
         z-index: 99;
     }
-    .aside1 .linkpages1{
+    
+    .aside1 .linkpages1 {
         display: flex;
-        margin-top: 10vh;
+        margin-top: 14vh;
         width: 100%;
         flex-direction: column;
         align-items: center;
         gap: 2rem;
     }
-    .aside-footer1{
+    
+    .aside-footer1 {
         position: absolute;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         gap: 1.23rem;
-        bottom: 0;
+        bottom: 0.6rem;
         z-index: 20;
     }
-    #open{
+    
+    #open {
         display: block;
         width: 80%;
         cursor: pointer;
         align-items: center;
     }
-    #close{
+    
+    #close {
         display: block;
     }
-    #close-sidebar{
+    
+    #close-sidebar {
         display: block;
         display: none;
         position: absolute;
@@ -81,47 +99,153 @@
         opacity: var(--bgopacity);
         backdrop-filter: 1.2rem;
     }
-    main{
-        width: 85vw;
-        margin-left: 11vw;
-        padding: 1rem 0;
+    
+    main {
+        width: 90vw;
+        margin-left: 10vw;
+        padding: 1.78rem 1rem;
+        box-sizing: border-box;
     }
-    .header{
-        height: 5vh;
+    
+    .header {
+        height: 7vh;
     }
-    span .monitoring{
+    
+    span .monitoring {
         display: none;
     }
-    .search-bar input{
-        width: 130%;
+    
+    .search-bar input {
+        width: 145%;
         height: 2.33rem;
-        margin: auto 1;
+        margin: 0.3rem;
     }
-    .search-bar i{
+    
+    .search-bar i {
         font-size: 0.9rem;
     }
     
-    .user-menu{
+    .user-menu {
         gap: 0.7rem;
-        img{
-            width: 2rem;
-            height: 2rem;
-        }
-        h3, h4{
-            display: none;
-        }
-    }
-    .dashboard{
-        margin: 1.9rem auto;
-        padding: 0.1rem 0.5rem;
-        box-shadow: var(--box-shadow1);
-    }
-    .stats-grids{
-        grid-template-columns: 1fr !important;
-    }
-    .stat-card:hover{
-        scale: 0.95;
-        margin-left: 0.3rem;
     }
     
+    .user-menu img {
+        width: 2rem;
+        height: 2rem;
+    }
+    
+    .user-menu h3, .user-menu h4 {
+        display: none;
+    }
+    
+    .dashboard {
+        padding: 0.2rem;
+        box-shadow: var(--box-shadow1);
+    }
+    
+    .dashboard .stats-grids {
+        grid-template-columns: 1fr;
+        margin: 0.8rem auto;
+    }
+    
+    .stat-card {
+        width: 85%;
+        /* max-height: 15vh; */
+        margin: 1.3rem auto;
+        padding: 0 0.45rem;
+    }
+    
+    .stat-card .stat-footer {
+        display: none;
+    }
+    .stat-footer:last-child{
+        display: block;
+        background: none;
+        bottom: 0;
+        padding-bottom: 1.8rem;
+    }
+    .stat-card:last-child{
+        padding: 1rem 0.45rem;
+    }
+    
+    .stat-card:hover {
+        scale: 0.95;
+        margin-left: 0.1rem;
+    }
+    
+    .pd {
+        width: 70vw;
+        grid-template-columns: 1fr;
+        margin: 0.32rem auto;
+        gap: 0.8rem;
+    }
+    .card{
+        position: relative;
+        box-sizing: border-box;
+        padding: 0.2rem;
+        margin: 0;
+    }
+    .number-temp, .number-sugar, .number-bp, .number-o2, .number-lung, .number-weight, .number-heart {
+        font-size: 2rem;
+    }
+    .unit{
+        font-size: 1.0rem;
+    }
+    .label{
+        font-size: 1.12rem;
+    }
+    .icon{
+        font-size: 1.6rem;
+        position: absolute;
+        right: 10%;
+    }
+    
+    /* Mobile Summary Card */
+    .summary-card {
+        width: 100%;
+        margin: 1rem auto;
+    }
+    
+    .metrics-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .appointment h1, .appointment h2{
+        text-align: center;
+    }
+    .userinfo{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        gap: 0;
+        margin: auto;
+        width: 90%;
+    }
+    .userinfo label{
+            display: block;
+            color: var(--cl-text);
+            margin-top: 2rem;
+        }
+    .userinfo input, .userinfo select, .userinfo textarea{
+        margin: 0;
+        padding: 0.5rem;
+        position: inherit;
+    }
+    .medcords-list li a i{
+        display: none;
+    }
+    .gridView{
+       display: flex;
+       flex-direction: column;
+       gap: 50px;
+       margin: 0;
+       table{
+        overflow: auto;
+        margin: 10px -30px;
+       }
+       .contactcard{
+        width: 110%;
+        margin-left: -10px;
+       }
+    }
 }

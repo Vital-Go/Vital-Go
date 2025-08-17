@@ -1,0 +1,123 @@
+html{
+    font-size: 13px;
+}
+
+input, select, option, textarea{
+    background: var(--cl-background);
+    width: 220px;
+    color: var(--cl-text);
+    padding: 0.25rem;
+    border: none;
+    border-bottom: 0.2rem inset var(--cl-shadow1);
+    border-right: 0.2rem inset var(--cl-shadow1);
+    border-radius: var(--radius-1);
+    position: absolute;
+    right: 0;
+}
+
+textarea{
+    resize: vertical;
+}
+
+.appointment{ 
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 95%;
+    margin: 3rem auto;
+    border: inset 0.1rem var(--cl-shadow);
+    border-radius: var(--radius-3);
+    box-shadow: var(--box-shadow);
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    gap: 1.46rem;
+}
+.appointment-head{
+    width: 100%;
+    background: var(--cl-secondary);
+    color: var(--cl-primary);
+    text-align: center;
+    border-top-left-radius: var(--radius-2);
+    border-top-right-radius: var(--radius-2);
+    padding: 0.34rem;
+    >h2{
+        color: var(--cl-primary);
+        animation: zooming 3s infinite;
+    }
+}
+
+.form-intro{
+    padding: 0.65rem 0.6rem;
+    border-bottom: outset 0.2rem var(--cl-shadow);
+    border-radius: var(--radius-2);
+    text-align: center;
+    font-size: 110%;
+}
+
+form{
+    width: 97%;
+    border-radius: var(--radius-2);
+    box-shadow: inset 0.2rem 0.2rem 0.5rem var(--cl-shadow), inset -0.2rem -0.2rem 0.5rem var(--cl-shadow);
+    font-size: 110%;
+    padding: 1rem;
+    margin: 1rem auto;
+}
+form h3{
+    margin-top: 3rem;
+    padding: 0.5rem;
+}
+
+.userinfo{
+    width: 100%;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 49%;
+    padding: 0 3rem;
+    gap: 2rem;
+    margin-top: 1.4rem;
+    box-sizing: border-box;
+}
+
+.consent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 5rem;
+
+    p{
+        padding: 0 3rem;
+
+        >input{
+            width: 2rem;
+            position: relative;
+            cursor: pointer;
+        }
+    }  
+}
+
+button{
+    /* width: 60%; */
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cl-background);
+    color: var(--cl-secondary);
+    border-radius: var(--radius-2);
+    border: none;
+    font-size: 120%;
+    cursor: pointer;
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+    box-shadow: var(--box-shadow);
+}
+
+@keyframes zooming{
+    60%{
+        scale: 0.7;
+    }
+}

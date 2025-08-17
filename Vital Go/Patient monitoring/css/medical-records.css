@@ -1,0 +1,104 @@
+/* Add to your style.css or medical-records.css */
+.medcords{
+    width: 98%;
+    background: var(--cl-background);
+    color: var(--cl-text);
+    border-radius: var(--radius-3);
+    box-shadow: var(--box-shadow1);
+    padding: 1.1rem 5px;
+    margin: 1.8rem auto;
+}
+
+.medcords-hero {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.medcords-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+.medcords-btn {
+    background: var(--cl-secondary);
+    color: var(--cl-primary);
+    padding: 0.7rem 1.5rem;
+    margin: 10px auto;
+    border-radius: 30px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.2s;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+.medcords-btn.secondary {
+    background: #6c757d;
+}
+.medcords-btn:hover {
+    background: var(--cl-sec-dark);
+}
+.medcords-list {
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+.medcords-list ul {
+    list-style: none;
+    padding: 0;
+}
+.medcords-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.7rem 1rem;
+    border-radius: 0.7rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.download-link {
+    margin-left: auto;
+    /* background: var(--cl-shadow); */
+    color: var(--cl-secondary);
+    padding: 2px 10px;
+    border: inset 2px;
+    border-radius: var(--radius-1);
+    /* text-decoration: none; */
+    font-size: 110%;
+    font-weight: bold;
+}
+.download-link:hover {
+    text-decoration: underline;
+}
+.medcords-note {
+    color: #888;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+}
+.medcords-upload {
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+.medcords-upload form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.medcords-upload input[type="text"],
+.medcords-upload input[type="file"] {
+    background: transparent;
+    color: var(--cl-text);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+}
+.medcords-support {
+    text-align: center;
+    margin-top: 2rem;
+    ul li{
+        list-style: none;
+    }
+}

@@ -137,7 +137,7 @@ let weight = 70.5;
 setInterval(() => {
   heartRate = fluctuate(heartRate, 60, 100, 2);
   document.getElementById("heart-rate").textContent = heartRate;
-}, 1000);
+}, 5000);
 
 // Blood Pressure (5 sec)
 setInterval(() => {
@@ -150,29 +150,29 @@ setInterval(() => {
 setInterval(() => {
   oxygen = fluctuate(oxygen, 95, 100, 1);
   document.getElementById("oxygen").textContent = oxygen;
-}, 3000);
+}, 5000);
 
 // Temperature (4 sec)
 setInterval(() => {
   temperature = fluctuate(temperature, 36.5, 37.5, 0.1, 1);
   document.getElementById("temperature").textContent = temperature;
-}, 4000);
+}, 5000);
 
 // Respiratory Rate (2 sec)
 setInterval(() => {
   respiratory = fluctuate(respiratory, 12, 20, 1);
   document.getElementById("respiratory").textContent = respiratory;
-}, 2000);
+}, 5000);
 
 // Blood Sugar (6 sec)
 setInterval(() => {
   sugar = fluctuate(sugar, 90, 110, 2);
   document.getElementById("sugar").textContent = sugar;
-}, 6000);
+}, 5000);
 
 // Weight (10 sec)
 setInterval(() => {
   weight = fluctuate(weight, 69.5, 72.0, 0.1, 1);
   document.getElementById("weight").textContent = weight;
-}, 10000);
+}, 5000);
 // }

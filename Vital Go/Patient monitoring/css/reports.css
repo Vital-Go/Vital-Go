@@ -1,0 +1,101 @@
+.reports{
+    width: 90%;
+    background: var(--cl-background);
+    color: var(--cl-text);
+    border-radius: var(--radius-3);
+    box-shadow: var(--box-shadow1);
+    padding: 1.1rem 3rem;
+    margin: 1.8rem auto;
+}
+
+.reportHead{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+}
+section p{
+    text-align: center;
+}
+form{
+    /* background-color: var(--cl-shadow); */
+    .issue{
+        margin-top: 20px;
+    }
+    select, input, textarea{
+        width: 100%;
+        margin: 10px 0 20px 0;
+        background: var(--cl-background);
+        color: var(--cl-text);
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+    }
+    .urgency .radioBtn{
+        display: flex;
+        text-align: center;
+        gap: 10px;
+        padding: 15px;
+        input{
+            width: 35px;
+            margin: 0;
+        }
+        
+    }
+}
+
+.gridView{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 70% auto;
+    table{
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+    th{
+        padding: 10px;
+        border-bottom: 2px inset var(--cl-shadow2);
+
+    }
+    tr{
+        border-radius: 0.7rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        td{
+            padding: 10px;
+        }
+    }
+    /* .basicInfo{
+        margin-top: -200px;
+    } */
+    .contactcard{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 10px 30px;
+        background: var(--cl-shadow2) ;
+        border-radius: 0.5rem;
+        margin-top: -30px;
+        margin-bottom: 30px;
+        h2{
+            color: var(--cl-text);
+        }
+       .other{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+       }
+    }
+    .submit{
+        background: var(--cl-secondary);
+        color: var(--cl-primary);
+        padding: 10px 60px;
+        border: none;
+        margin-top: 30px;
+        border-radius: 0.5rem;
+        cursor: pointer;
+    }
+}

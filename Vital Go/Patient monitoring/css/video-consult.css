@@ -1,0 +1,92 @@
+
+
+/* form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.45rem;
+} */
+
+/* Add to: ../css/video-consult.css */
+.video-consult {
+    background: var(--cl-background);
+    border-radius: 16px;
+    box-shadow:inset var(--box-shadow);
+    color: var(--cl-text);
+    padding: 2rem;
+    width: 80%;
+    margin: 2rem auto;
+    position: relative;
+}
+.vc-hero {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.vc-join-btn {
+    display: inline-block;
+    background: #007bff;
+    color: var(--cl-primary);
+    padding: 0.75rem 2rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.vc-join-btn:hover {
+    background: #0056b3;
+}
+.vc-schedule-form h2 {
+    margin-bottom: 1rem;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+}
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+.vc-schedule-btn {
+    background: #28a745;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.vc-schedule-btn:hover {
+    background: #1e7e34;
+}
+.vc-confirm-msg {
+    margin-top: 1rem;
+    color: #555;
+    font-size: 0.95rem;
+}
+.vc-support {
+    margin-top: 2rem;
+    text-align: center;
+}
+.vc-support ul {
+    list-style: none;
+    padding: 0;
+}
+.vc-support li {
+    margin-bottom: 0.5rem;
+}
+.vc-social a {
+    margin: 0 0.5rem;
+    color: #007bff;
+    font-size: 1.3rem;
+    transition: color 0.2s;
+}
+.vc-social a:hover {
+    color: #0056b3;
+}

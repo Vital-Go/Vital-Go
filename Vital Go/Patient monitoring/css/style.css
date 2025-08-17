@@ -1,3 +1,4 @@
+/* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
@@ -5,6 +6,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* CSS Variables for theme colors, radii, icons, etc. */
 :root {
     /* Basic colors  */
     --transition-smooth: all 0.5s ease-in-out;
@@ -22,6 +24,8 @@
     --cl-red: #ff0000;
     --cl-text: #2c3e50;
     --cl-shadow: rgba(0, 0, 0, 0.2);
+    --cl-shadow1: rgba(0, 0, 0, 0.5);
+    --cl-shadow2: rgba(0, 0, 0, 0.09);
 
     /* Border radius */
     --radius-circle: 50%;
@@ -39,10 +43,12 @@
     --box-shadow: 0.05rem 0.1rem 1.5rem var(--cl-shadow);
     --box-shadow-reverse: -0.05rem -0.1rem var(--cl-bgopacity);
     --box-shadow1: -0.1rem 0.1rem 1.5rem var(--cl-shadow);
+    --box-shadow2: 0.05rem 0.1rem 1.5rem var(--cl-shadow1);
     --card-padding: 1.5rem;
     --bgopacity: 0.5;
 }
 
+/* Dark mode overrides */
 body.dark-mode {
     --cl-background: #272424;
     --cl-bgopacity: hsl(0, 0%, 21%);
@@ -59,10 +65,12 @@ body.dark-mode {
     --cl-shadow: rgba(0, 0, 0, 0.8);
 }
 
+/* Base font size */
 html {
     font-size: 13px;
 }
 
+/* Body styles */
 body {
     width: 100vw;
     background: var(--cl-background);
@@ -71,20 +79,24 @@ body {
     list-style: none;
 }
 
+/* Anchor styles */
 a {
     text-decoration: none;
     color: var(--cl-secondary);
 }
 
+/* Image styles */
 img {
     width: 100vw;
     display: block;
 }
 
+/* Icon styles */
 i {
     font-size: 1.32rem;
 }
 
+/* Heading styles */
 h1 {
     font-size: 1.8rem;
     font-weight: 800;
@@ -99,6 +111,7 @@ h3 {
     font-size: 1.0rem;
 }
 
+/* Profile photo styles */
 .profile-photo {
     width: 3rem;
     height: 3rem;
@@ -107,6 +120,7 @@ h3 {
     overflow: hidden;
 }
 
+/* Utility classes */
 .text-muted {
     color: var(--cl-green);
     font-size: 0.9rem;
@@ -121,6 +135,7 @@ h3 {
     color: var(--cl-red);
 }
 
+/* Layout: Main container grid */
 .container {
     display: grid;
     height: 100vh;
@@ -129,6 +144,7 @@ h3 {
     transition: var(--transition-smooth);
 }
 
+/* Sidebar navigation styles */
 nav {
     height: 100dvh;
     text-align: center;
@@ -146,12 +162,19 @@ nav > .vitalgo-id img {
     margin: 1rem auto;
     border-radius: var(--radius-2);
 }
+nav #motto{
+    position: fixed;
+    width: 17rem;
+    text-align: center;
+}
 
+/* Mobile sidebar hidden by default */
 .aside1 {
     display: none;
     overflow: hidden;
 }
 
+/* Sidebar open/close icons */
 #close, #open {
     width: 2.1rem;
     height: 2.1rem;
@@ -164,6 +187,7 @@ nav > .vitalgo-id img {
     cursor: pointer;
 }
 
+/* Sidebar links */
 .linkpages {
     display: flex;
     flex-direction: column;
@@ -189,6 +213,7 @@ nav > .vitalgo-id img {
     transition: var(--transition-smooth);
 }
 
+/* Active and hover states for sidebar links */
 .linkpages a.active, .linkpages1 a.active {
     background: var(--cl-secondary);
     color: var(--cl-primary);
@@ -205,6 +230,7 @@ nav > .vitalgo-id img {
     box-shadow: var(--box-shadow);
 }
 
+/* Sidebar footer */
 .nav-footer {
     width: 100%;
     position: absolute;
@@ -214,14 +240,14 @@ nav > .vitalgo-id img {
     padding: 0 0.97rem;
 }
 
-/* main content */
+/* Main content area */
 main {
     width: auto;
     padding-left: min(5%, 1.23rem);
     overflow-y: auto;
 }
 
-/* header bar */
+/* Header bar styles */
 .header {
     width: 98%;
     height: 10vh;
@@ -236,6 +262,7 @@ main {
     box-shadow: var(--box-shadow);
 }
 
+/* Search bar styles */
 .search-bar input {
     width: 41.32rem;
     position: relative;
@@ -258,6 +285,7 @@ main {
     z-index: 1;
 }
 
+/* User menu styles */
 .user-menu {
     width: 30%;
     display: flex;
@@ -279,6 +307,7 @@ main {
     border-radius: var(--radius-1);
 }
 
+/* Active mode icon */
 .active-mode {
     background: var(--cl-secondary);
     color: var(--cl-primary);
@@ -286,7 +315,7 @@ main {
     padding: 0.28rem 0.28rem;
 }
 
-/* AI icon */
+/* AI floating icon */
 #vg-ai {
     font-size: 30px;
     display: inline-block;
@@ -306,11 +335,12 @@ main {
     box-shadow: var(--box-shadow1);
 }
 
-/* Dashboard */
+/* Dashboard card styles */
 .dashboard {
     border-radius: var(--radius-3);
     box-shadow: var(--box-shadow1);
     padding-top: 1.1rem;
+    padding-bottom: 1rem;
     margin: 1.8rem auto;
 }
 
@@ -326,8 +356,8 @@ main {
     text-align: center;
 }
 
-/* Guide information */
-.stats-grids {
+/* Stats grid for dashboard */
+.stats-grids{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
@@ -336,6 +366,7 @@ main {
     column-gap: 3rem;
 }
 
+/* Stat card styles */
 .stat-card {
     display: flex;
     align-items: center;
@@ -398,6 +429,7 @@ main {
     color: var(--cl-sec-light);
 }
 
+/* Animation classes */
 .slide-in {
     animation: slideIn 0.5s ease-in-out;
 }
@@ -406,7 +438,7 @@ main {
     animation: slideOut 0.5s ease-in-out;
 }
 
-/* Patient uploaded details */
+/* Patient uploaded details grid */
 .pd {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -418,47 +450,49 @@ main {
     padding-top: 2rem;
 }
 
-/* Cephas modification */
+/* Dashboard container for patient details */
 .dashboard-container {
     background: var(--cl-background);
     border-radius: var(--radius-2);
     padding: 0.5rem;
     border: 0.2rem solid var(--cl-shadow);
-    max-width: 1000px;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    max-height: 500px;
-    overflow-y: auto;
 }
 
+/* Grid row helpers */
 .grid-row {
     display: grid;
     gap: 0.5rem;
     width: 100%;
+    padding-top: 0.25rem;
 }
 
 .row-2 {
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 0.5rem;
+
 }
 
 .row-3 {
     grid-template-columns: repeat(3, 1fr);
+    margin-top: 0.5rem;
 }
 
+/* Card styles for dashboard metrics */
 .card {
     background: var(--cl-background);
-    border: 0.5rem;
     border-radius: 1.0rem;
     padding: 8px 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 70px;
-    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+    /* min-height: 70px; */
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
     width: 100%;
-    min-width: 0;
+    /* min-width: 0; */
     box-sizing: border-box;
 }
 
@@ -467,6 +501,7 @@ main {
     flex-direction: column;
 }
 
+/* Metric number styles */
 .number-temp, .number-sugar, .number-bp, .number-o2, .number-lung, .number-weight, .number-heart {
     font-size: 40px;
     font-weight: 700;
@@ -497,9 +532,9 @@ main {
 }
 
 .label {
-    font-size: 27px;
+    font-size: 1.74rem;
     font-weight: 700;
-    color: #333;
+    color: var(--cl-text);
 }
 
 .icon {
@@ -513,23 +548,22 @@ main {
     padding: 0;
 }
 
-/* Icon Colors */
+/* Icon color helpers */
 .heart2 {
-    color: #00cc99;
+    color: #3c0e57;
     font-size: 2.0rem;
 }
 
 .heart {
-    color: #00cc99;
-    font-size: 60px;
+    color: #d2db4c;
 }
 
 .bp {
-    color: hwb(352 5% 29%);
+    color: #b50d23;
 }
 
 .o2 {
-    color: #1db9c3;
+    color: #ec4f6f;
 }
 
 .temp {
@@ -554,7 +588,7 @@ main {
 
 /* Summary Card Styles */
 .summary-card {
-    background: var(--cl-primary);
+    background: var(--cl-background);
     border-radius: var(--radius-2);
     box-shadow: var(--box-shadow);
     padding: 0.3rem;
@@ -575,18 +609,12 @@ main {
     color: var(--cl-secondary);
     text-align: center;
 }
-/*
-.metrics-wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-} */
+
 .metrics-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem; /* Keep your spacing */
+  gap: 0.2rem; 
   flex: 1;
-  /*overflow-y: auto;*/ /* Allow scroll if content is too much */
   margin-top:-10px;
 }
 
@@ -596,8 +624,9 @@ main {
     padding: 1rem;
     border-radius: var(--radius-1);
     background: var(--cl-prim-dark);
-    margin:0;
-     justify-content: space-between;
+    margin: 0;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    justify-content: space-between;
 }
 
 .icon2 {
@@ -616,6 +645,7 @@ main {
     font-size: 1.2rem;
 }
 
+/* Slide in/out animations */
 @keyframes slideIn {
     from {
         transform: translateX(-100%);
@@ -637,186 +667,3 @@ main {
         opacity: 0;
     }
 }
-
-@media (max-width: 769px) {
-    .container {
-        width: 100vw;
-        box-sizing: border-box;
-        padding: 0;
-        grid-template-columns: 1fr;
-        transition: var(--transition-smooth);
-    }
-    
-    img {
-        max-width: 30vw;
-    }
-    
-    #sideBar {
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: var(--cl-background);
-        height: 100dvh;
-        width: 80vw;
-        justify-content: center;
-        align-items: center;
-        z-index: 99;
-    }
-    
-    #sideBar .vitalgo-id img {
-        width: 20vw;
-        height: 18vw;
-    }
-    
-    #sideBar .linkpages {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        text-align: 10vw;
-        top: 25vh;
-    }
-    
-    #sideBar .linkpages a {
-        width: 65%;
-    }
-    
-    .aside1 {
-        display: block;
-        width: 10vw;
-        height: 100dvh;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 99;
-    }
-    
-    .aside1 .linkpages1 {
-        display: flex;
-        margin-top: 25vh;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-    }
-    
-    .aside-footer1 {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 1.23rem;
-        bottom: 0;
-        z-index: 20;
-    }
-    
-    #open {
-        display: block;
-        width: 80%;
-        cursor: pointer;
-        align-items: center;
-    }
-    
-    #close {
-        display: block;
-    }
-    
-    #close-sidebar {
-        display: block;
-        display: none;
-        position: absolute;
-        top: 0;
-        height: 100dvh;
-        width: 100vw;
-        z-index: 98;
-        background: var(--cl-bgopacity);
-        opacity: var(--bgopacity);
-        backdrop-filter: 1.2rem;
-    }
-    
-    main {
-        width: 90vw;
-        margin-left: 10vw;
-        padding: 1.78rem 1rem;
-        box-sizing: border-box;
-    }
-    
-    .header {
-        height: 7vh;
-    }
-    
-    span .monitoring {
-        display: none;
-    }
-    
-    .search-bar input {
-        width: 145%;
-        height: 2.33rem;
-        margin: 0.3rem;
-    }
-    
-    .search-bar i {
-        font-size: 0.9rem;
-    }
-    
-    .user-menu {
-        gap: 0.7rem;
-    }
-    
-    .user-menu img {
-        width: 2rem;
-        height: 2rem;
-    }
-    
-    .user-menu h3, .user-menu h4 {
-        display: none;
-    }
-    
-    .dashboard {
-        padding: 0.2rem;
-        box-shadow: var(--box-shadow1);
-    }
-    
-    .dashboard .stats-grids {
-        grid-template-columns: 1fr;
-        margin: 0.8rem auto;
-    }
-    
-    .stat-card {
-        width: 80%;
-        max-height: 15vh;
-        margin: 2rem auto;
-        padding: 0 0.45rem;
-    }
-    
-    .stat-card .stat-footer {
-        display: none;
-    }
-    
-    .stat-card:hover {
-        scale: 0.95;
-        margin-left: 01rem;
-    }
-    
-    .pd {
-        width: 80vw;
-        grid-template-columns: 1fr;
-        margin: 0.32rem auto;
-        gap: 0.8rem;
-        place-items: center;
-    }
-    
-    /* Mobile Summary Card */
-    .summary-card {
-        width: 100%;
-        margin: 1rem auto;
-    }
-    
-    .metrics-wrapper {
-        grid-template-columns: 1fr;
-    }
-
- 
-
-}
-

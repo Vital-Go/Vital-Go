@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/reports.css">
+    <link rel="stylesheet" href="../css/mobile.css">
     <link rel="shortcut icon" href="../images/logo.jpg" type="image/jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
@@ -21,21 +23,21 @@
     <nav id="sideBar">
         <i class="fas fa-angles-left" onclick="sidemenunone()" id="close"></i>
         <div class="vitalgo-id">
-            <img src="../images/logo.jpg" alt="Logo" class="logo">
+            <img src="../images/logo.png" alt="Logo" class="logo">
             <h1>Vital<span class="good">-Go</h1>
             <h2 id="motto"></h2></span>
         </div>
         <div class="linkpages">
-            <a href="index.html" class="active"><i class="fas fa-home"></i> <span class="linkname"> Dashboard</span></a>
+            <a href="index.html"><i class="fas fa-home"></i> <span class="linkname"> Dashboard</span></a>
             <a href="appointments.html"><i class="fas fa-calendar"></i><span class="linkname">Appointments</span></a>
-            <a href="video-consult.html"><i class="fas fa-video"></i><span class="linkname">Video Consult</span></a>
+            <a href="https://vital-go-video-consult.onrender.com"><i class="fas fa-video"></i><span class="linkname">Video Consult</span></a>
             <a href="medical-records.html"><i class="fas fa-notes-medical"></i><span class="linkname"> Medical Records</span></a>
             <a href="reports.html"><i class="fas fa-file-waveform"></i><span class="linkname">Reports</span></a>
-            <a href="assistance.html"><i class="fas fa-question"></i><span class="linkname">Assistance</span></a>
+            <a href="https://vital-go-backend.onrender.com" target="_blank"><i class="fas fa-question"></i><span class="linkname">Assistance</span></a>
         </div>
         <div class="nav-footer">
             <div class="footer-info">
-                <a href=""> 
+                <a href="profile.html"> 
                     <i class="fas fa-user"></i>
                     <h3>Profile</h3>
                 </a>
@@ -67,7 +69,7 @@
                 <div>
                     <h3>Asiedu Minta Kwaku</h3>
                     <h4>ID: #Vital-Go24312</h4>
-                </div>
+                 </div>
                 <div class="togglemenu">
                     <i class="fas fa-sun active-mode" onclick="lightMode()"></i>
                     <i class="fas fa-moon" onclick="darkMode()"></i>
@@ -77,39 +79,90 @@
 
         <!-- Reports -->
          <section class="reports" id="reports">
-            <h1>Reports</h1>
-    <p>Welcome to the reports section. Here you can find various reports related to our services.</p>
-    <p>Below are some of the reports available:</p>
-    <ul>
-        <li><a href="report1.html">Report 1</a></li>
-        <li><a href="report2.html">Report 2</a></li>
-        <li><a href="report3.html">Report 3</a></li>
-        <li><a href="report4.html">Report 4</a></li>
-    </ul>
-    <p>If you need any specific report or have any questions, please feel free to reach out to us.</p>
-    <p>For more information, visit our website:</p>
-    <a href="https://www.vitalgo.com">www.vitalgo.com</a>
-    <p>Follow us on social media:</p>
-    <ul>
-        <li><a href="https://twitter.com/vitalgo">Twitter</a></li>
-        <li><a href="https://facebook.com/vitalgo">Facebook</a></li>
-        <li><a href="https://instagram.com/vitalgo">Instagram</a></li>
-        <li><a href="https://linkedin.com/company/vitalgo">LinkedIn</a></li>
-    </ul>
-    <p>Your feedback is important to us. Please let us know how we can improve:</p>
-    <p>If you have any questions or need assistance, please contact us at:</p>
-    <ul>
-        <li>Email: <a href="mailto:support@vitalgo.com">support@vitalgo.com</a></li>
-        <li>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></li>
-    </ul>
-
-    <footer>
-        <p>&copy; 2023 Vital-Go. All rights reserved.</p>
-        <p>Contact us: <a href="mailto:support@vitalgo.com">support@vitalgo.com</a></p>
-        <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
-        <p>Follow us on social media: <a href="https://twitter.com/vitalgo">Twitter</a>, <a href="https://facebook.com/vitalgo">Facebook</a></p>
-        <p>Visit our website: <a href="https://www.vitalgo.com">www.vitalgo.com</a></p>
-    </footer>
+            <div class="reportHead">
+                <i class="fas fa-file-waveform"></i>
+                <h1>Report a Problem</h1>
+            </div>
+            <p class="welcomeMsg">Help us improve your experience. You can report issues, give suggestions, or request technical support.</p>
+            <form action="">
+                <div class="issue">
+                    <label for="issueType"><h2>Issue Type</h2></label>
+                    <select name="" id="issueType">
+                        <option value="bug">Bug</option>
+                        <option value="suggestion">Suggestion</option>
+                        <option value="support">Support</option>
+                        <option value="emergency">Emergency</option>
+                        <option value="experience">Experience</option>
+                    </select><br>
+                </div>
+                <div class="subject">
+                    <label for="subject"><h2>Subject</h2></label>
+                    <input type="text" id="subject"><br>
+                </div>
+                <div class="description">
+                     <label for="description"><h2>Description</h2></label>
+                    <textarea autocorrect="on" id="description" rows="3" placeholder="Tell us exactly what went wrong, what you were trying to do and what device/browser you were using (if possible)..."></textarea> <br>
+                </div>
+                <div class="file">
+                    <label for="file"><h2>Attach File</h2></label>
+                    <input type="file" name="" id="file"> <br>
+                </div>
+                <div class="urgency">
+                    <label for="urgency"><h2>Urgency</h2></label>
+                    <div class="radioBtn">
+                        <input type="radio" name="urgency" id="low"><label for="low">Low</label>
+                        <input type="radio" name="urgency" id="medium"><label for="medium">Medium</label>
+                        <input type="radio" name="urgency" id="high"><label for="high">High</label>
+                    </div>                   
+                </div>      
+            </form>
+            <section class="gridView">
+                <div class="previousReport">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><h2>Your Previous Reports</h2></th>
+                                <th><h3>Date</h3></th>
+                                <th><h3>Type</h3></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Website not loading</td>
+                                <td>2025-05-28</td>
+                                <td>Bug</td>
+                            </tr>
+                            <tr>
+                                <td>Appointment not showing</td>
+                                <td>2025-05-14</td>
+                                <td>Technical</td>
+                            </tr>
+                            <tr>
+                                <td>Missing doctor profile info</td>
+                                <td>2025-04-01</td>
+                                <td>Suggestion</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="submit" class="submit" onclick="submitReport()">Submit Report</button>
+                </div>
+                <div class="basicInfo">
+                    <div class="contactcard">
+                        <h2>Neeed urgent help?</h2>
+                        <a href="mailto:vitalgo100@gmail.com"><i class="fas fa-envelope"></i> support@vitalgo.com</a><br>
+                        <a href="tel:+233555257482"><i class="fas fa-phone"></i> +233 555 257 482</a><br>
+                        <div class="other">
+                            <a href=""><i class="fas fa-comment"></i> Live chat</a> <a href="">Help Center</a> <a href="">FAQ</a>
+                        </div>
+                    </div>
+                    
+                    <div class="consent">
+                        <p></p><input type="checkbox" name="" id="consent" checked> 
+                        All Submitted reports are confidential and only accessible to Vital Go support and compliance team</p>
+                    </div>
+                </div>
+                
+            </section>
          </section>
     </main>
    </div>
@@ -120,15 +173,15 @@
         <i class="fas fa-angles-right open" id="open" onclick="sidemenushow()"></i>
     </div>
     <div class="linkpages1">
-        <a href="index.html" class="active"><i class="fas fa-home"></i></a>
+        <a href="index.html"><i class="fas fa-home"></i></a>
         <a href="appointments.html"><i class="fas fa-calendar"></i></a>
-        <a href="video-consult.html"><i class="fas fa-video"></i></a>
+        <a href="https://vital-go-video-consult.onrender.com"><i class="fas fa-video"></i></a>
         <a href="medical-records.html"><i class="fas fa-notes-medical"></i></a>
         <a href="reports.html"><i class="fas fa-file-waveform"></i></a>
-        <a href="assistance.html"><i class="fas fa-question"></i></a>
+        <a href="https://vital-go-backend.onrender.com" target="_blank"><i class="fas fa-question"></i></a>
     </div>
     <div class="aside-footer1">
-        <a href=""> <i class="fas fa-user"></i></a>      
+        <a href="profile.html"> <i class="fas fa-user"></i></a>      
         <a href=""><i class="fas fa-gear"></i></a> 
         <a href=""><i class="fas fa-arrow-right-from-bracket"></i>                
     </div>
