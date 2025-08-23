@@ -1,58 +1,616 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Patient Profile - Vital-GO</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Patient Profile — Vital‑GO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f9ff;
+      --card: #fff;
+      --muted: #6b7280;
+      --accent: #116bf3;
+      --glass: rgba(255, 255, 255, 0.75);
+      --radius: 14px;
+      --shadow: 0 14px 40px rgba(2, 6, 23, 0.08);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html, body {
+      height: 100%;
+      font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
+      background: linear-gradient(180deg, var(--bg), #eef6ff);
+      color: #0f172a;
+    }
+    
+    body {
+      padding: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+    
+    .profile-container {
+      width: 100%;
+      max-width: 980px;
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    /* Cover section */
+    .cover {
+      position: relative;
+      height: 200px;
+      background: #cbd5e1;
+      overflow: hidden;
+    }
+    
+    .cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .cover-badge {
+      position: absolute;
+      right: 18px;
+      top: 14px;
+      background: var(--glass);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: var(--accent);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Profile photo */
+    .photo-wrap {
+      /* position: absolute; */
+      left: 32px;
+      bottom: -56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      z-index: 10;
+    }
+    
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid #fff;
+      box-shadow: 0 8px 24px rgba(2, 6, 23, 0.12);
+      background: #fff;
+    }
+    
+    .change-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 12px;
+      transition: all 0.2s ease;
+    }
+    
+    .change-btn:hover {
+      background: #0a5ed9;
+      transform: translateY(-1px);
+    }
+    
+    input[type="file"] {
+      display: none;
+    }
+
+    /* Main content */
+    .main {
+      padding: 82px 32px 36px;
+    }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    
+    .fullname {
+      font-size: 20px;
+      font-weight: 800;
+      margin: 0;
+    }
+    
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+    
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .btn {
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 13px;
+      transition: all 0.2s ease;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    
+    .btn-primary:hover {
+      background: #0a5ed9;
+      transform: translateY(-1px);
+    }
+    
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(2, 6, 23, 0.06);
+      color: var(--accent);
+    }
+    
+    .btn-ghost:hover {
+      background: rgba(17, 107, 243, 0.08);
+    }
+
+    /* Grid layout */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 24px;
+    }
+    
+    .card {
+      background: linear-gradient(180deg, #fff, #fbfdff);
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(2, 6, 23, 0.03);
+      border: 1px solid rgba(2, 6, 23, 0.03);
+    }
+    
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(2, 6, 23, 0.05);
+    }
+    
+    .bar {
+      width: 6px;
+      height: 20px;
+      background: linear-gradient(180deg, var(--accent), #2b8bf6);
+      border-radius: 4px;
+    }
+    
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    
+    .info {
+      background: #f7fbff;
+      padding: 14px;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+    
+    .info:hover {
+      background: #eef6ff;
+      transform: translateY(-2px);
+    }
+    
+    .label {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    
+    .value {
+      font-weight: 800;
+      margin-top: 6px;
+      font-size: 14px;
+    }
+
+    /* Vitals section */
+    .vitals {
+      display: flex;
+      gap: 12px;
+      flex-wrap: nowrap;
+      margin-bottom: 18px;
+    }
+    
+    .vcard {
+      flex: 0 0 120px;
+      background: #fff;
+      padding: 12px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(2, 6, 23, 0.04);
+    }
+    
+    .ring {
+      width: 76px;
+      height: 76px;
+    }
+    
+    .ring circle {
+      fill: none;
+    }
+    
+    .ring-bg {
+      stroke: #eef3fb;
+      stroke-width: 10;
+    }
+    
+    .ring-progress {
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-dasharray: 301.59;
+      stroke-dashoffset: 301.59;
+      transition: stroke-dashoffset 1.2s cubic-bezier(0.22, 0.9, 0.32, 1);
+    }
+    
+    .vnum {
+      font-weight: 800;
+    }
+    
+    .vlabel {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    
+    .pill {
+      background: #f1f8ff;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 800;
+      color: var(--accent);
+      font-size: 12px;
+    }
+
+    /* Quick actions */
+    .actions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    
+    .small {
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(2, 6, 23, 0.04);
+      background: #f8fafc;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+    
+    .small:hover {
+      background: #f1f7ff;
+      transform: translateY(-1px);
+    }
+    
+    .desktop-edit {
+      text-align: center;
+      margin-top: 28px;
+    }
+    
+    .mobile-cta {
+      display: none;
+    }
+
+    /* Responsive design */
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr 320px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .header {
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .actions {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 650px) {
+      body {
+        padding: 12px;
+      }
+      
+      .cover {
+        height: 140px;
+      }
+      
+      .photo-wrap {
+        left: 20px;
+        bottom: -46px;
+      }
+      
+      .avatar {
+        width: 96px;
+        height: 96px;
+        border-width: 4px;
+      }
+      
+      .main {
+        padding: 64px 16px 120px;
+      }
+      
+      .vitals {
+        overflow: auto;
+        padding-bottom: 6px;
+      }
+      
+      .vcard {
+        min-width: 120px;
+      }
+      
+      .desktop-edit {
+        display: none;
+      }
+      
+      .mobile-cta {
+        display: block;
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        z-index: 80;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="profile-container">
-    
-    <!-- Cover Photo Section -->
-    <div class="cover-photo-section">
-      <img src="https://i.imgur.com/lanH13d.png" alt="Cover Photo" class="cover-photo"/>
-      <button class="cover-edit-btn">Change Cover Photo</button>
+  <div class="profile-container" role="region" aria-label="patient profile">
 
-      <!-- Profile Photo Section -->
-      <div class="photo-wrapper">
-        <img src="https://i.imgur.com/x7y0P2R.jpeg" alt="Patient Photo" class="profile-photo"/>
-        <button class="photo-edit-btn">Change Photo</button>
+    <div class="cover">
+      <img src="https://i.imgur.com/lanH13d.png" alt="cover photo">
+      <div class="cover-badge" aria-hidden="true">🔒 Permanent cover</div>
+
+      <div class="photo-wrap">
+        <img id="avatar" class="avatar" src="https://i.imgur.com/x7y0P2R.jpeg" alt="profile photo">
+        <div>
+          <label class="change-btn" for="photo">Change Photo</label>
+          <input id="photo" type="file" accept="image/*">
+        </div>
       </div>
     </div>
 
-    <!-- Basic Information -->
-    <div class="section-title" style="color: #116bf3;">Basic Information</div>
-    <div class="info-grid">
-      <div class="info-box"><div class="label">Full Name</div><div class="value">John Doe</div></div>
-      <div class="info-box"><div class="label">Patient ID</div><div class="value">VG-204938</div></div>
-      <div class="info-box"><div class="label">Date of Birth</div><div class="value">Jan 15, 1985</div></div>
-      <div class="info-box"><div class="label">Gender</div><div class="value">Male</div></div>
-      <div class="info-box"><div class="label">Nationality</div><div class="value">Ghanaian</div></div>
-      <div class="info-box"><div class="label">Blood Type</div><div class="value">O+</div></div>
+    <div class="main">
+      <div class="header">
+        <div>
+          <h1 class="fullname">John Doe <span class="meta">• VG-204938</span></h1>
+          <div class="meta">Age 40 • Male • O+ • Ghanaian</div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-ghost">Message</button>
+          <button class="btn btn-primary">Open dashboard</button>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div>
+          <div class="card">
+            <div class="section-title"><span class="bar"></span> Basic information</div>
+            <div class="info-grid">
+              <div class="info"><div class="label">Full name</div><div class="value">John Doe</div></div>
+              <div class="info"><div class="label">Patient ID</div><div class="value">VG-204938</div></div>
+              <div class="info"><div class="label">Date of birth</div><div class="value">Jan 15, 1985</div></div>
+              <div class="info"><div class="label">Gender</div><div class="value">Male</div></div>
+              <div class="info"><div class="label">Nationality</div><div class="value">Ghanaian</div></div>
+              <div class="info"><div class="label">Blood type</div><div class="value">O+</div></div>
+            </div>
+
+            <div class="section-title" style="margin-top:20px"><span class="bar"></span> Contact information</div>
+            <div class="info-grid">
+              <div class="info"><div class="label">Email</div><div class="value">johndoe@email.com</div></div>
+              <div class="info"><div class="label">Phone</div><div class="value">+233 24 123 4567</div></div>
+              <div class="info"><div class="label">Address</div><div class="value">123 Medical Road, Accra</div></div>
+              <div class="info"><div class="label">Emergency contact</div><div class="value">+233 20 987 6543</div></div>
+            </div>
+
+            <div class="section-title" style="margin-top:20px"><span class="bar"></span> Account details</div>
+            <div class="info-grid">
+              <div class="info"><div class="label">Registered</div><div class="value">March 1, 2024</div></div>
+              <div class="info"><div class="label">Status</div><div class="value"><span class="pill">Active</span></div></div>
+              <div class="info" style="grid-column:1/3"><div class="label">Assigned doctor</div><div class="value">Dr. Kwame Mensah • Cardiologist</div></div>
+              <div class="info"><div class="label">Insurance</div><div class="value">Glico Health • #GH102384</div></div>
+            </div>
+
+          </div>
+        </div>
+
+        <aside>
+          <div class="card">
+            <div class="section-title"><span class="bar"></span> Health snapshot</div>
+
+            <div class="vitals" aria-hidden="false">
+              <!-- BPM -->
+              <div class="vcard">
+                <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+                  <circle class="ring-bg" cx="60" cy="60" r="48"></circle>
+                  <circle class="ring-progress" cx="60" cy="60" r="48" data-percent="72" stroke="#00b4d8"></circle>
+                </svg>
+                <div class="vnum" data-target="72">72</div>
+                <div class="vlabel">BPM</div>
+              </div>
+
+              <!-- BP (percent used for ring visual; display value is text) -->
+              <div class="vcard">
+                <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+                  <circle class="ring-bg" cx="60" cy="60" r="48"></circle>
+                  <circle class="ring-progress" cx="60" cy="60" r="48" data-percent="60" stroke="#ff8a65"></circle>
+                </svg>
+                <div class="vnum" data-target="120">120/78</div>
+                <div class="vlabel">BP</div>
+              </div>
+
+              <!-- Steps (82% of goal) -->
+              <div class="vcard">
+                <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+                  <circle class="ring-bg" cx="60" cy="60" r="48"></circle>
+                  <circle class="ring-progress" cx="60" cy="60" r="48" data-percent="82" stroke="#3ad29f"></circle>
+                </svg>
+                <div class="vnum" data-target="8200">8,200</div>
+                <div class="vlabel">Steps</div>
+              </div>
+            </div>
+
+            <div class="meta-row">
+              <div>
+                <div class="label">Med adherence</div>
+                <div class="value" id="adherence">92%</div>
+              </div>
+              <div>
+                <div class="label">Next appointment</div>
+                <div class="value">Sep 03, 2025 • 10:30AM</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:16px">
+            <div class="section-title"><span class="bar"></span> Quick actions</div>
+            <div class="actions-list">
+              <button class="small">View history</button>
+              <button class="small">Download report</button>
+              <button class="small" style="background:var(--accent); color:white;">Share to clinician</button>
+              <button class="small">Edit full profile</button>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+
+      <div class="desktop-edit"><button class="btn btn-primary">Edit full profile</button></div>
+      <div class="mobile-cta"><button class="btn btn-primary">Open full dashboard</button></div>
+
     </div>
 
-    <!-- Contact Information -->
-    <div class="section-title" style="color: #116bf3;">Contact Information</div>
-    <div class="info-grid">
-      <div class="info-box"><div class="label">Email</div><div class="value">johndoe@email.com</div></div>
-      <div class="info-box"><div class="label">Phone</div><div class="value">+233 24 123 4567</div></div>
-      <div class="info-box"><div class="label">Address</div><div class="value">123 Medical Road, Accra, Ghana</div></div>
-      <div class="info-box"><div class="label">Emergency Contact</div><div class="value">+233 20 987 6543</div></div>
-    </div>
-
-    <!-- Account Details -->
-    <div class="section-title" style="color: #116bf3;">Account Details</div>
-    <div class="info-grid">
-      <div class="info-box"><div class="label">Registration Date</div><div class="value">March 1, 2024</div></div>
-      <div class="info-box"><div class="label">Patient Status</div><div class="value">Active</div></div>
-      <div class="info-box"><div class="label">Assigned Doctor</div><div class="value">Dr. Kwame Mensah (Cardiologist)</div></div>
-      <div class="info-box"><div class="label">Insurance Provider</div><div class="value">Glico Health - #GH102384</div></div>
-    </div>
-
-    <!-- Edit Profile Button -->
-    <button class="edit-btn">Edit Full Profile</button>
   </div>
+
+  <script>
+    /* --- PROFILE PHOTO: preview + local persistence (demo) --- */
+    (function(){
+      const input = document.getElementById('photo');
+      const avatar = document.getElementById('avatar');
+      const STORAGE_KEY = 'vg_profile_photo_v2';
+      // load saved
+      try{ const saved = localStorage.getItem(STORAGE_KEY); if(saved) avatar.src = saved; }catch(e){}
+
+      input.addEventListener('change', e=>{
+        const file = e.target.files && e.target.files[0];
+        if(!file) return;
+        if(!file.type.startsWith('image/')) return alert('Please pick an image file');
+        if(file.size > 2_500_000) return alert('Please use an image smaller than 2.5MB');
+
+        const reader = new FileReader();
+        reader.onload = function(ev){
+          avatar.src = ev.target.result;
+          try{ localStorage.setItem(STORAGE_KEY, ev.target.result); }catch(err){console.warn('save failed', err)}
+
+          // OPTIONAL: upload to server using FormData
+          // const form = new FormData(); form.append('photo', file);
+          // fetch('/api/upload-profile-photo', { method:'POST', body: form }).then(...)
+        };
+        reader.readAsDataURL(file);
+      });
+    })();
+
+    /* --- ANIMATED RINGS + COUNTERS --- */
+    (function(){
+      function setCircleProgress(circle, percent){
+        const r = circle.r.baseVal.value;
+        const c = 2 * Math.PI * r;
+        circle.style.strokeDasharray = c + ' ' + c;
+        const offset = c * (1 - (percent/100));
+        // start from full and transition to offset
+        circle.style.strokeDashoffset = c;
+        requestAnimationFrame(()=>{ circle.style.strokeDashoffset = offset; });
+      }
+
+      function animateNumber(el, end, duration=1000){
+        const start = 0;
+        const startTime = performance.now();
+        function tick(now){
+          const t = Math.min((now - startTime)/duration, 1);
+          const cur = Math.floor(start + (end - start) * t);
+          el.textContent = typeof end === 'number' ? cur.toLocaleString() : end;
+          if(t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+
+      document.querySelectorAll('.vcard').forEach(card=>{
+        const circle = card.querySelector('.ring-progress');
+        const targetEl = card.querySelector('.vnum');
+        const percent = parseFloat(circle.getAttribute('data-percent')||0);
+        const targetAttr = targetEl.getAttribute('data-target');
+        // for numbers that are not pure digits (like '120/78') we just keep it
+        const numericTarget = /^[0-9]+$/.test(targetAttr) ? parseInt(targetAttr,10) : targetAttr;
+
+        setCircleProgress(circle, percent);
+        // animate number only if numeric
+        if(typeof numericTarget === 'number') animateNumber(targetEl, numericTarget, 1100);
+      });
+
+    })();
+  </script>
 </body>
 </html>
